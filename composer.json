@@ -1,0 +1,20 @@
+{
+	"name": "innoweb/silverstripe-social-share",
+	"description": "Adds sharing links and buttons for Facebook, Twitter, Instagram, Pinterest and Google+ as well as AddThis to the site.",
+	"type": "silverstripe-module",
+	"license": "BSD-3-Clause",
+	"keywords": ["silverstripe", "social", "sharing"],
+	"authors": [{
+		"name": "Florian Thoma",
+		"homepage": "http://www.innoweb.com.au"
+	}],
+	"require":
+	{
+		"silverstripe/framework": "~3.2",
+		"silverstripe/cms": "~3.2",
+		"innoweb/silverstripe-social-metadata": "~1.0"
+	},
+	"extra": {
+		"installer-name": "social-share"
+	}
+}

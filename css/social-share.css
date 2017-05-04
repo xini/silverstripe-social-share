@@ -1,0 +1,44 @@
+@media screen
+{
+	.share .share-label,
+	.share .share-button,
+	.share .share-link { float: left; margin-right: 1em; line-height: 1.8em; color: #999; }
+	.share .share-link a { 
+		display: block; 
+		text-indent: -32768px; 
+		width: 30px; 
+		height: 30px;
+		background: #c8c8c8 url(/social-share/images/social-profiles.png) 0 0 no-repeat;
+		background-clip: content-box; 
+		background-size: cover;
+		-moz-border-radius: 50%; /* Firefox */
+		-webkit-border-radius: 50%; /* Safari and chrome */ 
+		-khtml-border-radius: 50%; /* Linux browsers */ 
+		border-radius: 50%; /* CSS3 */
+	}
+	.share .share-link.facebook a { background-position: 0 0px; }
+	.share .share-link.twitter a { background-position: 0 -60px; }
+	.share .share-link.google a { background-position: 0 -120px; }
+	.share .share-link.linkedin a { background-position: 0 -180px; }
+	.share .share-link.pinterest a { background-position: 0 -240px; }
+	
+	.share-link.facebook a:focus,
+	.share-link.facebook a:hover,
+	.share-link.facebook a:active { background-color: #3B5999 !important; }
+	.share-link.twitter a:focus,
+	.share-link.twitter a:hover,
+	.share-link.twitter a:active { background-color: #55acee !important; }
+	.share-link.google a:focus,
+	.share-link.google a:hover,
+	.share-link.google a:active { background-color: #dd4b39 !important; }
+	.share-link.linkedin a:focus,
+	.share-link.linkedin a:hover,
+	.share-link.linkedin a:active { background-color: #0274b3 !important; }
+	.share-link.pinterest a:focus,
+	.share-link.pinterest a:hover,
+	.share-link.pinterest a:active { background-color: #CB2027 !important; }
+	.share-link.instagram a:focus,
+	.share-link.instagram a:hover,
+	.share-link.instagram a:active { background-color: #bd3381 !important; }
+	
+}

@@ -1,0 +1,26 @@
+---
+Name: socialshare
+---
+Page:
+  extensions:
+    - SocialSharePageExtension
+Page_Controller:
+  extensions:
+    - SocialSharePageControllerExtension
+SiteConfig:
+  extensions:
+    - SocialShareConfigExtension
+SocialShareConfigExtension:
+  multisites_enable_global_settings: false
+  enable_base_share: false
+LeftAndMain:
+  extra_requirements_javascript:
+    - social-share/javascript/cms-social-share.js
+---
+Only:
+  classexists: 'Multisites'
+---
+Site:
+  extensions:
+    - SocialShareConfigExtension
+    

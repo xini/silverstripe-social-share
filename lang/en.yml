@@ -1,0 +1,21 @@
+en:
+  BaseShareLinks:
+    SHARE: 'Share:'
+  Page:
+    ShowSharingLinks: 'Show Sharing Links/Buttons on this page'
+  PageShareLinks:
+    SHARE: 'Share:'
+  SocialShareConfigExtension:
+    AddThisCode: 'AddThis Code'
+    DEFAULTSHARINGDESCRIPTION: 'Default Description'
+    DEFAULTSHARINGTITLE: 'Default Site Name'
+    DefaultSharingData: 'Default Sharing Data'
+    DefaultSharingImage: 'Default Image (1200x630px)'
+    SHAREONFACEBOOK: 'Share on Facebook'
+    SHAREONGOOGLE: 'Share on Google+'
+    SHAREONLINKEDIN: 'Share on LinkedIn'
+    SHAREONPINTEREST: 'Share on Pinterest'
+    SHAREONTWITTER: 'Share on Twitter'
+    SharingType: 'Type of sharing links'
+    SocialNetworks: 'Social Networks'
+    SocialSharingTab: 'Social Sharing'
