@@ -16,7 +16,7 @@ class SocialShareConfigExtension extends DataExtension {
 	);
 	
 	private static $has_one = array(
-	    'SharingImage' => 'Image'
+	    'DefaultSharingImage' => 'Image'
 	);
 
 	public function updateCMSFields(FieldList $fields) {
