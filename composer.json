@@ -12,7 +12,7 @@
 	{
 		"silverstripe/framework": "~3.2",
 		"silverstripe/cms": "~3.2",
-		"innoweb/silverstripe-social-metadata": "~2.0"
+		"innoweb/silverstripe-social-metadata": "~3.0"
 	},
 	"extra": {
 		"installer-name": "social-share"
