@@ -13,7 +13,7 @@ SiteConfig:
 SocialShareConfigExtension:
   multisites_enable_global_settings: false
   enable_base_share: false
-LeftAndMain:
+CMSMain:
   extra_requirements_javascript:
     - social-share/javascript/cms-social-share.js
 ---
