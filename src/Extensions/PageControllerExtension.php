@@ -1,18 +1,24 @@
 <?php
 
-class SocialSharePageControllerExtension extends Extension {
-	
+namespace Innoweb\SocialShare\Extensions;
+
+use SilverStripe\Core\Config\Config;
+use SilverStripe\Core\Extension;
+use SilverStripe\View\Requirements;
+
+class PageControllerExtension extends Extension {
+
 	public function onAfterInit() {
-	    
-	    Requirements::css('social-share/css/social-share.css');
-		
+
+	    Requirements::css('innoweb/silverstripe-social-share:css/social-share.css');
+
 		$config = $this->owner->getSocialShareConfig();
-		
-		$enableBaseShare = Config::inst()->get('SocialShareConfigExtension', 'enable_base_share');
-		
+
+		$enableBaseShare = Config::inst()->get(ConfigExtension::class, 'enable_base_share');
+
 		// add javascript for sharing buttons
 		if (($this->owner->ShowSharingLinks || $enableBaseShare) && $config->SharingType == "Buttons") {
-			
+
 			// twitter
 			if ($config->ShareOnTwitter) {
 				$js = <<<JS
@@ -53,7 +59,7 @@ JS;
 JS;
 				Requirements::customScript($js, 'facebook-js');
 			}
-			
+
 			// pinterest
 			if ($config->ShareOnPinterest) {
 		   		$js = <<<JS
@@ -75,7 +81,7 @@ JS;
 						var e = document.createElement('script');
 						e.type = 'text/javascript';
 						e.async = true;
-						e.src = 'http://platform.linkedin.com/in.js?async=true';
+						e.src = '//platform.linkedin.com/in.js?async=true';
 						e.onload = function(){IN.init() };
 						var s = document.getElementsByTagName('script')[0];
 						s.parentNode.insertBefore(e, s);
@@ -83,12 +89,12 @@ JS;
 JS;
 				Requirements::customScript($js, 'linkedin-js');
 			}
-			
+
 		} else if (($this->owner->ShowSharingLinks || $enableBaseShare) && $config->SharingType == "AddThis" && $config->ShareAddThisCode) {
-		    
+
 		    Requirements::customScript($config->obj('ShareAddThisCode')->RAW(), 'addthis-js');
-		    
+
 		}
-		
+
 	}
 }

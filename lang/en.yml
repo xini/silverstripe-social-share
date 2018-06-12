@@ -5,7 +5,7 @@ en:
     ShowSharingLinks: 'Show Sharing Links/Buttons on this page'
   PageShareLinks:
     SHARE: 'Share:'
-  SocialShareConfigExtension:
+  Innoweb\SocialShare\Extensions\ConfigExtension:
     AddThisCode: 'AddThis Code'
     DEFAULTSHARINGDESCRIPTION: 'Default Description'
     DEFAULTSHARINGTITLE: 'Default Site Name'

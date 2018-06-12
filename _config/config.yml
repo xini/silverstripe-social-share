@@ -3,24 +3,20 @@ Name: socialshare
 ---
 Page:
   extensions:
-    - SocialSharePageExtension
-Page_Controller:
+    - Innoweb\SocialShare\Extensions\PageExtension
+PageController:
   extensions:
-    - SocialSharePageControllerExtension
-SiteConfig:
+    - Innoweb\SocialShare\Extensions\PageControllerExtension
+SilverStripe\SiteConfig\SiteConfig:
   extensions:
-    - SocialShareConfigExtension
-SocialShareConfigExtension:
+    - Innoweb\SocialShare\Extensions\ConfigExtension
+Innoweb\SocialShare\Extensions\ConfigExtension:
   multisites_enable_global_settings: false
   enable_base_share: false
-CMSMain:
-  extra_requirements_javascript:
-    - social-share/javascript/cms-social-share.js
 ---
 Only:
-  classexists: 'Multisites'
+  classexists: 'Symbiote\Multisites\Multisites'
 ---
-Site:
+Symbiote\Multisites\Model\Site:
   extensions:
-    - SocialShareConfigExtension
-    
+    - Innoweb\SocialShare\Extensions\ConfigExtension

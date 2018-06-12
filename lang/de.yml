@@ -5,7 +5,7 @@ de:
     ShowSharingLinks: 'Sharing Links/Buttons auf dieser Seite anzeigen'
   PageShareLinks:
     SHARE: 'Teilen:'
-  SocialShareConfigExtension:
+  Innoweb\SocialShare\Extensions\ConfigExtension:
     AddThisCode: 'AddThis Code'
     DEFAULTSHARINGDESCRIPTION: 'Standard Beschreibung'
     DEFAULTSHARINGTITLE: 'Standard Seiten Titel'

@@ -1,7 +1,7 @@
 {
 	"name": "innoweb/silverstripe-social-share",
 	"description": "Adds sharing links and buttons for Facebook, Twitter, Instagram, Pinterest and Google+ as well as AddThis to the site.",
-	"type": "silverstripe-module",
+    "type": "silverstripe-vendormodule",
 	"license": "BSD-3-Clause",
 	"keywords": ["silverstripe", "social", "sharing"],
 	"authors": [{
@@ -10,11 +10,21 @@
 	}],
 	"require":
 	{
-		"silverstripe/framework": "~3.2",
-		"silverstripe/cms": "~3.2",
-		"innoweb/silverstripe-social-metadata": "~3.0"
+        "silverstripe/cms": "^4",
+        "unclecheese/display-logic": "^2.0.0"
 	},
-	"extra": {
-		"installer-name": "social-share"
-	}
+	"autoload": {
+		"psr4": {
+            "Innoweb\\SocialShare\\": "src/"
+        }
+	},
+    "suggest": {
+        "innoweb/silverstripe-social-profiles": "Adds social profile links to the site.",
+        "innoweb/silverstripe-social-metadata": "Adds social metadata like OpenGraph, Twitter and JSON-LD to all pages."
+    },
+    "extra": {
+        "expose": [
+            "client"
+        ]
+    }
 }
