@@ -10,7 +10,7 @@ class PageControllerExtension extends Extension {
 
 	public function onAfterInit() {
 
-	    Requirements::css('innoweb/silverstripe-social-share:css/social-share.css');
+	    Requirements::css('innoweb/silverstripe-social-share:client/css/social-share.css');
 
 		$config = $this->owner->getSocialShareConfig();
 
