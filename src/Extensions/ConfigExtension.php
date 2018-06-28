@@ -35,6 +35,10 @@ class ConfigExtension extends DataExtension {
 	private static $has_one = array(
 	    'DefaultSharingImage' => Image::class
 	);
+	
+	private static $owns = [
+	    'DefaultSharingImage'
+	];
 
 	public function updateCMSFields(FieldList $fields) {
 

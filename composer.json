@@ -10,7 +10,7 @@
 	}],
 	"require":
 	{
-        "silverstripe/cms": "^4",
+        "silverstripe/cms": "^4.1",
         "unclecheese/display-logic": "^2.0.0"
 	},
 	"autoload": {
