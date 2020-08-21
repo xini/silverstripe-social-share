@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.0.3]
+
+* fix loading config from page if page controller used independently
+
 ## [3.0.2]
 
 * add owns API for linked image
