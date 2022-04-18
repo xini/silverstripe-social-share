@@ -7,12 +7,12 @@
 		<% if $SocialShareConfig.ShareOnFacebook %>
 			<div class="share-button">
 				<div id="fb-root"></div>
-				<div class="fb-like" data-href="{$AbsoluteLink}" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div>
+				<div class="fb-share-button" data-href="{$AbsoluteLink}" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div>
 			</div>
 		<% end_if %>
 		<% if $SocialShareConfig.ShareOnTwitter %>
 			<div class="share-button">
-				<a href="https://twitter.com/share" class="twitter-share-button" data-url="{$AbsoluteLink}" data-counturl="{$AbsoluteLink}" data-count="horizontal" data-lang="en">Tweet</a>
+				<a href="//twitter.com/share" class="twitter-share-button" data-url="{$AbsoluteLink}" data-counturl="{$AbsoluteLink}" data-count="horizontal" data-lang="en">Tweet</a>
 			</div>
 		<% end_if %>
 		<% if $SocialShareConfig.PlusOnGoogle %>
