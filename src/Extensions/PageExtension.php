@@ -50,7 +50,7 @@ class PageExtension extends \SilverStripe\CMS\Model\SiteTreeExtension {
 
     public function LinkedinShareLink($base = false){
     	$url = $base ? Director::absoluteBaseURL() : $this->owner->Link();
-        return 'https://www.linkedin.com/shareArticle?mini=true&amp;url=' . Director::absoluteURL($url) . '&amp;title=' . urlencode(($this->owner->hasMethod('getSocialMetaPageTitle')) ? $this->owner->getSocialMetaPageTitle() : $this->owner->getTitle());
+        return 'https://www.linkedin.com/sharing/share-offsite/?&url=' . Director::absoluteURL($url);
     }
 
     public function PinterestShareLink($base = false){
