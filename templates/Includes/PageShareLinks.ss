@@ -15,11 +15,6 @@
 				<a href="//twitter.com/share" class="twitter-share-button" data-url="{$AbsoluteLink}" data-counturl="{$AbsoluteLink}" data-count="horizontal" data-lang="en">Tweet</a>
 			</div>
 		<% end_if %>
-		<% if $SocialShareConfig.PlusOnGoogle %>
-			<div class="share-button">
-				<div class="g-plusone" data-size="medium" data-href="{$AbsoluteLink}"></div>
-			</div>
-		<% end_if %>
 		<% if $SocialShareConfig.ShareOnPinterest %>
 			<div class="share-button">
 				<a href="//www.pinterest.com/pin/create/button/?url={$AbsoluteLink}" data-pin-do="buttonBookmark" ><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" /></a>
