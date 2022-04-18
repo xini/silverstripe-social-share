@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.0.4]
+
+* update LinkedIn sharing link url
+* remove Google+ from sharing options
+* update native social sharing buttons
+* fix visibility of page share links/button in template
+
 ## [3.0.3]
 
 * fix loading config from page if page controller used independently
