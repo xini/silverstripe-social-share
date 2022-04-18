@@ -15,11 +15,6 @@
 				<a href="https://twitter.com/share" class="twitter-share-button" data-url="{$AbsoluteLink}" data-counturl="{$AbsoluteLink}" data-count="horizontal" data-lang="en">Tweet</a>
 			</div>
 		<% end_if %>
-		<% if $SocialShareConfig.ShareOnGoogle %>
-			<div class="share-button">
-				<div class="g-plus" data-action="share" data-annotation="bubble" data-href="{$AbsoluteLink}"></div>
-			</div>
-		<% end_if %>
 		<% if $SocialShareConfig.PlusOnGoogle %>
 			<div class="share-button">
 				<div class="g-plusone" data-size="medium" data-href="{$AbsoluteLink}"></div>
@@ -44,11 +39,6 @@
 		<% if $SocialShareConfig.ShareOnTwitter %>
 			<div class="share-link twitter">
 				<a href="$TwitterShareLink" target="_blank">Twitter</a>
-			</div>
-		<% end_if %>
-		<% if $SocialShareConfig.ShareOnGoogle %>
-			<div class="share-link google">
-				<a href="$GoogleShareLink" target="_blank">Google+</a>
 			</div>
 		<% end_if %>
 		<% if $SocialShareConfig.ShareOnPinterest %>

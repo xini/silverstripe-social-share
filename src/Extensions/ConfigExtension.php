@@ -21,7 +21,6 @@ class ConfigExtension extends DataExtension {
 	private static $db = array(
 		'ShareOnFacebook' => 'Boolean',
 		'ShareOnTwitter' => 'Boolean',
-		'ShareOnGoogle' => 'Boolean',
 		'ShareOnLinkedin' => 'Boolean',
 		'ShareOnPinterest' => 'Boolean',
 
@@ -67,7 +66,6 @@ class ConfigExtension extends DataExtension {
                     FieldGroup::create(
                         CheckboxField::create('ShareOnFacebook', _t("SocialShareConfigExtension.SHAREONFACEBOOK", 'Share on Facebook')),
                         CheckboxField::create('ShareOnTwitter', _t("SocialShareConfigExtension.SHAREONTWITTER", 'Share on Twitter')),
-                        CheckboxField::create('ShareOnGoogle', _t("SocialShareConfigExtension.SHAREONGOOGLE", 'Share on Google+')),
                         CheckboxField::create('ShareOnLinkedin', _t("SocialShareConfigExtension.SHAREONLINKEDIN", 'Share on LinkedIn')),
                         CheckboxField::create('ShareOnPinterest', _t("SocialShareConfigExtension.SHAREONPINTEREST", 'Share on Pinterest'))
                     )
@@ -117,7 +115,6 @@ class ConfigExtension extends DataExtension {
 		} else if ($this->owner->MicroDataType == "AddThis") {
 		    $this->owner->ShareOnFacebook = false;
 		    $this->owner->ShareOnTwitter = false;
-		    $this->owner->ShareOnGoogle = false;
 		    $this->owner->ShareOnLinkedin = false;
 		    $this->owner->ShareOnPinterest = false;
 		}

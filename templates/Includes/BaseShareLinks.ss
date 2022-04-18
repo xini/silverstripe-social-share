@@ -20,11 +20,6 @@
 				<div class="g-plus" data-action="share" data-annotation="bubble" data-href="{$BaseHref}"></div>
 			</div>
 		<% end_if %>
-		<% if $SocialShareConfig.PlusOnGoogle %>
-			<div class="share-button">
-				<div class="g-plusone" data-size="medium" data-href="{$BaseHref}"></div>
-			</div>
-		<% end_if %>
 		<% if $SocialShareConfig.ShareOnPinterest %>
 			<div class="share-button">
 				<a href="//www.pinterest.com/pin/create/button/?url={$BaseHref}" data-pin-do="buttonBookmark" ><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" /></a>
@@ -44,11 +39,6 @@
 		<% if $SocialShareConfig.ShareOnTwitter %>
 			<div class="share-link twitter">
 				<a href="$TwitterShareLink(true)" target="_blank">Twitter</a>
-			</div>
-		<% end_if %>
-		<% if $SocialShareConfig.ShareOnGoogle %>
-			<div class="share-link google">
-				<a href="$GoogleShareLink(true)" target="_blank">Google+</a>
 			</div>
 		<% end_if %>
 		<% if $SocialShareConfig.ShareOnPinterest %>

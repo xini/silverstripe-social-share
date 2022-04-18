@@ -43,11 +43,6 @@ class PageExtension extends \SilverStripe\CMS\Model\SiteTreeExtension {
         return 'https://twitter.com/share?url=' . Director::absoluteURL($url);
     }
 
-    public function GoogleShareLink($base = false){
-    	$url = $base ? Director::absoluteBaseURL() : $this->owner->Link();
-        return 'https://plus.google.com/share?url=' . Director::absoluteURL($url);
-    }
-
     public function LinkedinShareLink($base = false){
     	$url = $base ? Director::absoluteBaseURL() : $this->owner->Link();
         return 'https://www.linkedin.com/sharing/share-offsite/?&url=' . Director::absoluteURL($url);

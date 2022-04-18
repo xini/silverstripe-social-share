@@ -36,18 +36,6 @@ JS;
     				Requirements::customScript($js, 'twitter-js');
     			}
 
-    			// google plus
-    			if ($config->ShareOnGoogle) {
-    		   		$js = <<<JS
-    					(function() {
-    						var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    						po.src = 'https://apis.google.com/js/plusone.js';
-    						var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-    					})();
-JS;
-    				Requirements::customScript($js, 'google-plus-js');
-    			}
-
     			// facebook
     			if ($config->ShareOnFacebook) {
     		   		$js = <<<JS
