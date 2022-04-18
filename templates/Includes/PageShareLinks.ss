@@ -1,4 +1,5 @@
 <% cached 'page-share', $ID, $SiteConfig.LastEdited, $List(Page).max(LastEdited), $List(Page).count() %>
+<% if $ShowSharingLinks %>
 <div class="share">
 	<div class="share-label"><%t PageShareLinks.SHARE "Share:" %></div>
 	<% if $SocialShareConfig.SharingType == "AddThis" && $SocialShareConfig.AddThisCode %>
@@ -48,4 +49,5 @@
 		<% end_if %>
 	<% end_if %>
 </div>
+<% end_if %>
 <% end_cached %>

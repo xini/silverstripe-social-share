@@ -2,6 +2,7 @@ en:
   BaseShareLinks:
     SHARE: 'Share:'
   Page:
+    SocialSharing: 'Social Sharing'
     ShowSharingLinks: 'Show Sharing Links/Buttons on this page'
   PageShareLinks:
     SHARE: 'Share:'

@@ -26,11 +26,11 @@ class PageExtension extends \SilverStripe\CMS\Model\SiteTreeExtension {
 		$fields->addFieldToTab(
 			"Root.Settings",
 			$contentfooter = new FieldGroup(
-				new CheckboxField('ShowSharingLinks', "")
+				new CheckboxField('ShowSharingLinks', _t("Page.ShowSharingLinks", 'Show Sharing Links/Buttons on this page'))
 			),
 			'CanViewType'
 		);
-		$contentfooter->setTitle(_t("Page.ShowSharingLinks", 'Show Sharing Links/Buttons on this page'));
+		$contentfooter->setTitle(_t("Page.SocialSharing", 'Social Sharing'));
 	}
 
     public function FacebookShareLink($base = false){
