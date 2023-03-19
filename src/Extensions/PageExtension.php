@@ -35,7 +35,7 @@ class PageExtension extends \SilverStripe\CMS\Model\SiteTreeExtension {
 
     public function FacebookShareLink($base = false){
     	$url = $base ? Director::absoluteBaseURL() : $this->owner->Link();
-        return 'http://facebook.com/sharer/sharer.php?u=' . Director::absoluteURL($url);
+        return 'https://facebook.com/sharer/sharer.php?u=' . Director::absoluteURL($url);
     }
 
     public function TwitterShareLink($base = false){
@@ -51,7 +51,7 @@ class PageExtension extends \SilverStripe\CMS\Model\SiteTreeExtension {
     public function PinterestShareLink($base = false){
     	$url = $base ? Director::absoluteBaseURL() : $this->owner->Link();
         return new ArrayData(array(
-        	'Link' => 'http://pinterest.com/pin/create/button/?url=' . Director::absoluteURL($url),
+        	'Link' => 'https://pinterest.com/pin/create/button/?url=' . Director::absoluteURL($url),
         	'Image' => ($this->owner->hasMethod('getSocialMetaImage') && $this->owner->getSocialMetaImage() ? $this->owner->getSocialMetaImage()->getAbsoluteURL() : null),
         	'Description' => urlencode(($this->owner->hasMethod('getSocialMetaPageTitle')) ? $this->owner->getSocialMetaPageTitle() : $this->owner->getTitle()),
         ));

@@ -10,7 +10,7 @@ class PageControllerExtension extends Extension {
 
 	public function onAfterInit() {
 
-	    Requirements::css('innoweb/silverstripe-social-share:client/css/social-share.css');
+	    Requirements::css('innoweb/silverstripe-social-share:client/dist/css/social-share.css');
 
 	    $config = ($this->getOwner()->data() && $this->getOwner()->data()->hasMethod('getSocialShareConfig')) ? $this->getOwner()->data()->getSocialShareConfig() : null;
 
@@ -30,7 +30,7 @@ class PageControllerExtension extends Extension {
 						if (d.getElementById(id)) return t;
 						js = d.createElement(s);
 						js.id = id;
-						js.src = "//platform.twitter.com/widgets.js";
+						js.src = "https://platform.twitter.com/widgets.js";
 						fjs.parentNode.insertBefore(js, fjs);
 
 						t._e = [];
@@ -51,7 +51,7 @@ JS;
 						var js, fjs = d.getElementsByTagName(s)[0];
 						if (d.getElementById(id)) return;
 						js = d.createElement(s); js.id = id;
-						js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+						js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
 						fjs.parentNode.insertBefore(js, fjs);
 						}(document, 'script', 'facebook-jssdk'));
 JS;
@@ -65,7 +65,7 @@ JS;
     					    var f = d.getElementsByTagName('SCRIPT')[0], p = d.createElement('SCRIPT');
     					    p.type = 'text/javascript';
     					    p.async = true;
-    					    p.src = '//assets.pinterest.com/js/pinit.js';
+    					    p.src = 'https://assets.pinterest.com/js/pinit.js';
     					    f.parentNode.insertBefore(p, f);
     					}(document));
 JS;
@@ -79,7 +79,7 @@ JS;
     						var e = document.createElement('script');
     						e.type = 'text/javascript';
     						e.async = true;
-    						e.src = '//platform.linkedin.com/in.js';
+    						e.src = 'https://platform.linkedin.com/in.js';
     						var s = document.getElementsByTagName('script')[0];
     						s.parentNode.insertBefore(e, s);
     					})();

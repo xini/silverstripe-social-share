@@ -1,0 +1,41 @@
+@media screen
+{
+    .share {
+        display: flex;
+        align-items: center;
+    }
+	.share .share-label,
+	.share .share-button,
+	.share .share-link { display: inline-block; margin-right: 1em; color: #999; }
+	.share .share-link a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2rem;
+        height: 2rem;
+        margin: 0 auto;
+        border: 0;
+        border-radius: 50%;
+	}
+
+    .share-button iframe {
+        display: block;
+    }
+
+	.share-link.facebook a:focus,
+	.share-link.facebook a:hover,
+	.share-link.facebook a:active { background-color: #3B5999 !important; }
+	.share-link.twitter a:focus,
+	.share-link.twitter a:hover,
+	.share-link.twitter a:active { background-color: #55acee !important; }
+	.share-link.linkedin a:focus,
+	.share-link.linkedin a:hover,
+	.share-link.linkedin a:active { background-color: #0274b3 !important; }
+	.share-link.pinterest a:focus,
+	.share-link.pinterest a:hover,
+	.share-link.pinterest a:active { background-color: #CB2027 !important; }
+	.share-link.instagram a:focus,
+	.share-link.instagram a:hover,
+	.share-link.instagram a:active { background-color: #bd3381 !important; }
+
+}

@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [4.0.0]
+
+* upgrade to Silverstripe 5
+* switch to svg icons
+
 ## [3.0.4]
 
 * update LinkedIn sharing link url

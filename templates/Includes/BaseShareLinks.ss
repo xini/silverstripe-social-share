@@ -12,12 +12,12 @@
 		<% end_if %>
 		<% if $SocialShareConfig.ShareOnTwitter %>
 			<div class="share-button">
-				<a href="//twitter.com/share" class="twitter-share-button" data-text="$$SocialShareConfig.Title" data-url="{$BaseHref}" data-counturl="{$BaseHref}" data-count="horizontal" data-lang="en">Tweet</a>
+				<a href="https://twitter.com/share" class="twitter-share-button" data-text="$$SocialShareConfig.Title" data-url="{$BaseHref}" data-counturl="{$BaseHref}" data-count="horizontal" data-lang="en">Tweet</a>
 			</div>
 		<% end_if %>
 		<% if $SocialShareConfig.ShareOnPinterest %>
 			<div class="share-button">
-				<a href="//www.pinterest.com/pin/create/button/?url={$BaseHref}" data-pin-do="buttonBookmark" ><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" /></a>
+				<a href="https://www.pinterest.com/pin/create/button/?url={$BaseHref}" data-pin-do="buttonBookmark" ><img src="https://assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" /></a>
 			</div>
 		<% end_if %>
 		<% if $SocialShareConfig.ShareOnLinkedin %>
@@ -28,22 +28,30 @@
 	<% else_if $SocialShareConfig.SharingType == "Links" %>
 		<% if $SocialShareConfig.ShareOnFacebook %>
 			<div class="share-link facebook">
-				<a href="$FacebookShareLink(true)" target="_blank">Facebook</a>
+				<a href="$FacebookShareLink(true)" target="_blank">
+                    <img src="$resourceURL('innoweb/silverstripe-social-share:client/dist/icons/facebook.svg')" height="16" width="16" alt="Facebook">
+                </a>
 			</div>
 		<% end_if %>
 		<% if $SocialShareConfig.ShareOnTwitter %>
 			<div class="share-link twitter">
-				<a href="$TwitterShareLink(true)" target="_blank">Twitter</a>
+				<a href="$TwitterShareLink(true)" target="_blank">
+                    <img src="$resourceURL('innoweb/silverstripe-social-share:client/dist/icons/twitter.svg')" height="16" width="16" alt="Twitter">
+                </a>
 			</div>
 		<% end_if %>
 		<% if $SocialShareConfig.ShareOnPinterest %>
 			<div class="share-link pinterest">
-				<a href="<% with $PinterestShareLink %>$Link&description=$Description<% if Image %>&amp;media=$Image<% end_if %><% end_with %>" target="_blank">Pinterest</a>
+				<a href="<% with $PinterestShareLink %>$Link&description=$Description<% if $Image %>&amp;media=$Image<% end_if %><% end_with %>" target="_blank">
+                    <img src="$resourceURL('innoweb/silverstripe-social-share:client/dist/icons/pinterest.svg')" height="16" width="16" alt="Pinterest">
+                </a>
 			</div>
 		<% end_if %>
 		<% if $SocialShareConfig.ShareOnLinkedin %>
 			<div class="share-link linkedin">
-				<a href="$LinkedinShareLink(true)" target="_blank">LinkedIn</a>
+				<a href="$LinkedinShareLink(true)" target="_blank">
+                    <img src="$resourceURL('innoweb/silverstripe-social-share:client/dist/icons/linkedin.svg')" height="16" width="16" alt="LinkedIn">
+                </a>
 			</div>
 		<% end_if %>
 	<% end_if %>
