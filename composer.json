@@ -8,8 +8,7 @@
 		"name": "Florian Thoma",
 		"homepage": "http://www.innoweb.com.au"
 	}],
-	"require":
-	{
+	"require": {
         "silverstripe/cms": "^5",
 		"silverstripe/vendor-plugin": "^2",
         "unclecheese/display-logic": "^3"
