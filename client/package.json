@@ -2,7 +2,7 @@
   "name": "silverstripe-social-share",
   "version": "1.0.0",
   "author": "Innoweb Pty Ltd",
-  "license": "proprietary",
+  "license": "BSD-3-Clause",
   "dependencies": {
   },
   "devDependencies": {
