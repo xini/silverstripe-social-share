@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [4.1.0]
+
+* replace Twitter icon and labels with X
+
 ## [4.0.1]
 
 * rebuild frontend in attempt to fix expose issue

@@ -65,7 +65,7 @@ class ConfigExtension extends DataExtension {
 				$manualFields = Wrapper::create(
                     FieldGroup::create(
                         CheckboxField::create('ShareOnFacebook', _t("SocialShareConfigExtension.SHAREONFACEBOOK", 'Share on Facebook')),
-                        CheckboxField::create('ShareOnTwitter', _t("SocialShareConfigExtension.SHAREONTWITTER", 'Share on Twitter')),
+                        CheckboxField::create('ShareOnTwitter', _t("SocialShareConfigExtension.SHAREONTWITTER", 'Share on X (Twitter)')),
                         CheckboxField::create('ShareOnLinkedin', _t("SocialShareConfigExtension.SHAREONLINKEDIN", 'Share on LinkedIn')),
                         CheckboxField::create('ShareOnPinterest', _t("SocialShareConfigExtension.SHAREONPINTEREST", 'Share on Pinterest'))
                     )

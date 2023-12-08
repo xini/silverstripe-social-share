@@ -34,9 +34,9 @@
 			</div>
 		<% end_if %>
 		<% if $SocialShareConfig.ShareOnTwitter %>
-			<div class="share-link twitter">
+			<div class="share-link x">
 				<a href="$TwitterShareLink(true)" target="_blank">
-                    <img src="$resourceURL('innoweb/silverstripe-social-share:client/dist/icons/twitter.svg')" height="16" width="16" alt="Twitter">
+                    <img src="$resourceURL('innoweb/silverstripe-social-share:client/dist/icons/x.svg')" height="16" width="16" alt="X (Twitter)">
                 </a>
 			</div>
 		<% end_if %>

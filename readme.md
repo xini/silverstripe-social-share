@@ -5,7 +5,7 @@
 
 ## Overview
 
-Adds sharing links and buttons for Facebook, Twitter, Instagram, Pinterest as well as AddThis to the site.
+Adds sharing links and buttons for Facebook, X (Twitter), Instagram, Pinterest as well as AddThis to the site.
 
 ## Requirements
 

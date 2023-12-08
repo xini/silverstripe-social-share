@@ -29,5 +29,8 @@
     "last 5 versions",
     "Firefox ESR",
     "not dead"
-  ]
+  ],
+  "scripts": {
+    "build": "gulp"
+  }
 }
