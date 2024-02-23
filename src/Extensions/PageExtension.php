@@ -18,8 +18,11 @@ class PageExtension extends \SilverStripe\CMS\Model\SiteTreeExtension {
 	public function getSocialShareConfig() {
         if (class_exists('Symbiote\Multisites\Multisites') && !Config::inst()->get(ConfigExtension::class, 'multisites_enable_global_settings')) {
             return \Symbiote\Multisites\Multisites::inst()->getCurrentSite();
+        } elseif (class_exists('Fromholdio\ConfiguredMultisites\Multisites') && !Config::inst()->get(ConfigExtension::class, 'multisites_enable_global_settings')) {
+            return \Fromholdio\ConfiguredMultisites\Multisites::inst()->getCurrentSite();
+        } else {
+            return SiteConfig::current_site_config();
         }
-        return SiteConfig::current_site_config();
     }
 
 	public function updateSettingsFields(&$fields) {
