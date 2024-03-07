@@ -13,10 +13,21 @@ SilverStripe\SiteConfig\SiteConfig:
 Innoweb\SocialShare\Extensions\ConfigExtension:
   multisites_enable_global_settings: false
   enable_base_share: false
+
 ---
 Only:
-  classexists: 'Symbiote\Multisites\Multisites'
+  moduleexists:
+    - 'symbiote/silverstripe-multisites'
 ---
 Symbiote\Multisites\Model\Site:
+  extensions:
+    - Innoweb\SocialShare\Extensions\ConfigExtension
+
+---
+Only:
+  moduleexists:
+    - 'fromholdio/silverstripe-configured-multisites'
+---
+Fromholdio\ConfiguredMultisites\Model\Site:
   extensions:
     - Innoweb\SocialShare\Extensions\ConfigExtension
