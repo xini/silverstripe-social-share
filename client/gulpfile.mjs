@@ -5,8 +5,7 @@ import changed from 'gulp-changed';
 import cssimport from 'gulp-cssimport';
 import cleancss from 'gulp-clean-css';
 import { deleteSync } from 'del';
-import imagemin from 'gulp-imagemin';
-import imageminSvgo from 'imagemin-svgo';
+import imagemin, {svgo} from 'gulp-imagemin';
 import plumber from 'gulp-plumber';
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
@@ -30,13 +29,13 @@ const paths = {
 }
 
 const sassOptions = {
-	errLogToConsole: true,
-	outputStyle: 'compressed'
+    errLogToConsole: true,
+    outputStyle: 'compressed'
 };
 
 const autoprefixerOptions = {
-	cascade: false,
-	supports: false
+    cascade: false,
+    supports: false
 };
 
 function styles(cb) {
@@ -73,47 +72,48 @@ function styles(cb) {
 }
 
 function svgs(cb) {
-	src(paths.svgs.src + paths.svgs.filter)
-	    .pipe(plumber({
-	        errorHandler: onError
-	    }))
-	    .pipe(changed(paths.svgs.dist))
-	    .pipe(imagemin(
-	        [
-                imageminSvgo({
-	                plugins: [
-	                    {name: 'removeViewBox', active: false},
-	                    {name: 'removeUselessStrokeAndFill', active: false},
-	                    {name: 'cleanupIDs', active: false},
-	                    {name: 'removeUselessDefs', active: false}
-	                ]
-	            })
-	        ],
-	        {
-	            verbose: true
-	        }
-	    ))
-	    .pipe(dest(paths.svgs.dist));
-	cb();
+    src(paths.svgs.src + paths.svgs.filter)
+        .pipe(plumber({
+            errorHandler: onError
+        }))
+        .pipe(changed(paths.svgs.dist))
+        .pipe(imagemin(
+            [
+                svgo({
+                    plugins: [
+                        {name: 'removeViewBox', active: false},
+                        {name: 'removeUselessStrokeAndFill', active: false},
+                        {name: 'cleanupIDs', active: false},
+                        {name: 'removeUselessDefs', active: false}
+                    ]
+                })
+            ],
+            {
+                verbose: true
+            }
+        ))
+        .pipe(dest(paths.svgs.dist));
+    cb();
 }
+
 function cleanstyles(cb) {
     deleteSync([
         paths.styles.dist + paths.styles.distfilter
-	]);
-	cb();
+    ]);
+    cb();
 }
 
 function cleansvgs(cb) {
     deleteSync([
-		paths.svgs.dist + paths.svgs.filter
-	]);
-	cb();
+        paths.svgs.dist + paths.svgs.filter
+    ]);
+    cb();
 }
 function watchAll() {
-	// watch for style changes
-	watch(paths.styles.src + paths.styles.filter, series(cleanstyles, styles));
-	// watch for svg changes
-	watch(paths.svgs.src + paths.svgs.filter, series(cleansvgs, svgs));
+    // watch for style changes
+    watch(paths.styles.src + paths.styles.filter, series(cleanstyles, styles));
+    // watch for svg changes
+    watch(paths.svgs.src + paths.svgs.filter, series(cleansvgs, svgs));
 }
 
 function onError(err) {
@@ -121,26 +121,26 @@ function onError(err) {
 }
 
 task('clean', series(
-	parallel(
+    parallel(
         cleanstyles,
-		cleansvgs
-	)
+        cleansvgs
+    )
 ));
 
 task('build', series(
-	parallel(
+    parallel(
         cleanstyles,
         cleansvgs
-	),
-	parallel(
-		styles,
-		svgs
-	)
+    ),
+    parallel(
+        styles,
+        svgs
+    )
 ));
 
 task('css', series(
-	cleanstyles,
-	styles
+    cleanstyles,
+    styles
 ));
 
 task('svgs', series(
@@ -157,5 +157,5 @@ task('default', series(
         styles,
         svgs
     ),
-	watchAll
+    watchAll
 ));
