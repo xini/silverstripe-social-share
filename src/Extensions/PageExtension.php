@@ -46,9 +46,24 @@ class PageExtension extends \SilverStripe\CMS\Model\SiteTreeExtension {
         return 'https://twitter.com/share?url=' . Director::absoluteURL($url);
     }
 
+    public function BlueskyShareLink($base = false){
+        $url = $base ? Director::absoluteBaseURL() : $this->owner->Link();
+        return 'https://bsky.app/intent/compose?text=' . urlencode(Director::absoluteURL($url));
+    }
+
+    public function ThreadsShareLink($base = false){
+        $url = $base ? Director::absoluteBaseURL() : $this->owner->Link();
+        return 'https://threads.net/intent/post?text=' . urlencode(Director::absoluteURL($url));
+    }
+
+    public function RedditShareLink($base = false){
+        $url = $base ? Director::absoluteBaseURL() : $this->owner->Link();
+        return 'https://reddit.com/submit?url=' . urlencode(Director::absoluteURL($url));
+    }
+
     public function LinkedinShareLink($base = false){
     	$url = $base ? Director::absoluteBaseURL() : $this->owner->Link();
-        return 'https://www.linkedin.com/sharing/share-offsite/?&url=' . Director::absoluteURL($url);
+        return 'https://www.linkedin.com/sharing/share-offsite/?url=' . Director::absoluteURL($url);
     }
 
     public function PinterestShareLink($base = false){

@@ -33,6 +33,20 @@
                 </a>
 			</div>
 		<% end_if %>
+        <% if $SocialShareConfig.ShareOnBluesky %>
+            <div class="share-link bluesky">
+                <a href="$BlueskyShareLink(true)" target="_blank">
+                    <img src="$resourceURL('innoweb/silverstripe-social-share:client/dist/icons/bluesky.svg')" height="16" width="16" alt="Bluesky">
+                </a>
+            </div>
+        <% end_if %>
+        <% if $SocialShareConfig.ShareOnThreads %>
+            <div class="share-link threads">
+                <a href="$ThreadsShareLink(true)" target="_blank">
+                    <img src="$resourceURL('innoweb/silverstripe-social-share:client/dist/icons/threads.svg')" height="16" width="16" alt="Threads">
+                </a>
+            </div>
+        <% end_if %>
 		<% if $SocialShareConfig.ShareOnTwitter %>
 			<div class="share-link x">
 				<a href="$TwitterShareLink(true)" target="_blank">
@@ -54,6 +68,13 @@
                 </a>
 			</div>
 		<% end_if %>
+        <% if $SocialShareConfig.ShareOnReddit %>
+            <div class="share-link reddit">
+                <a href="$RedditShareLink(true)" target="_blank">
+                    <img src="$resourceURL('innoweb/silverstripe-social-share:client/dist/icons/reddit.svg')" height="16" width="16" alt="Reddit">
+                </a>
+            </div>
+        <% end_if %>
 	<% end_if %>
 </div>
 <% end_cached %>

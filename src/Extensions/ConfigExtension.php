@@ -23,6 +23,9 @@ class ConfigExtension extends DataExtension {
 		'ShareOnTwitter' => 'Boolean',
 		'ShareOnLinkedin' => 'Boolean',
 		'ShareOnPinterest' => 'Boolean',
+        'ShareOnBluesky' => 'Boolean',
+        'ShareOnThreads' => 'Boolean',
+        'ShareOnReddit' => 'Boolean',
 
 		'SharingType' => "Enum('Links,Buttons,AddThis','Links')",
 	    'ShareAddThisCode' => 'Text',
@@ -56,7 +59,7 @@ class ConfigExtension extends DataExtension {
 			        _t("SocialShareConfigExtension.SharingType", 'Type of sharing links'),
 			        array(
 			            'Links' => 'Normal links (no Javascript needed)',
-			            'Buttons' => 'Native sharing buttons (uses Javascript)',
+			            'Buttons' => 'Native sharing buttons (uses Javascript, not all platforms supported)',
 			            'AddThis'=> 'AddThis (uses Javascript)'
 			        )
 			    )
@@ -66,9 +69,12 @@ class ConfigExtension extends DataExtension {
 				$manualFields = Wrapper::create(
                     FieldGroup::create(
                         CheckboxField::create('ShareOnFacebook', _t("SocialShareConfigExtension.SHAREONFACEBOOK", 'Share on Facebook')),
+                        CheckboxField::create('ShareOnBluesky', _t("SocialShareConfigExtension.SHAREONBLUESKY", 'Share on Bluesky')),
+                        CheckboxField::create('ShareOnThreads', _t("SocialShareConfigExtension.SHAREONTHREADS", 'Share on Threads')),
                         CheckboxField::create('ShareOnTwitter', _t("SocialShareConfigExtension.SHAREONTWITTER", 'Share on X (Twitter)')),
                         CheckboxField::create('ShareOnLinkedin', _t("SocialShareConfigExtension.SHAREONLINKEDIN", 'Share on LinkedIn')),
-                        CheckboxField::create('ShareOnPinterest', _t("SocialShareConfigExtension.SHAREONPINTEREST", 'Share on Pinterest'))
+                        CheckboxField::create('ShareOnPinterest', _t("SocialShareConfigExtension.SHAREONPINTEREST", 'Share on Pinterest')),
+                        CheckboxField::create('ShareOnReddit', _t("SocialShareConfigExtension.SHAREONREDDIT", 'Share on Reddit'))
                     )
                         ->addExtraClass('social-sharing-networks')
                         ->setTitle(_t("SocialShareConfigExtension.SocialNetworks", 'Social Networks'))
@@ -115,9 +121,12 @@ class ConfigExtension extends DataExtension {
 		    $this->owner->ShareAddThisCode = "";
 		} else if ($this->owner->MicroDataType == "AddThis") {
 		    $this->owner->ShareOnFacebook = false;
-		    $this->owner->ShareOnTwitter = false;
+		    $this->owner->ShareOnBluesky = false;
+            $this->owner->ShareOnTwitter = false;
 		    $this->owner->ShareOnLinkedin = false;
 		    $this->owner->ShareOnPinterest = false;
+            $this->owner->ShareOnThreads = false;
+            $this->owner->ShareOnReddit = false;
 		}
 
 	}

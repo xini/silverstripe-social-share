@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [4.4.0]
+
+* add sharing links for Bluesky, Threads and Reddit
+
 ## [4.3.0]
 
 * update frontend dependencies to gulp 5
