@@ -51,43 +51,60 @@ class ConfigExtension extends DataExtension {
             || (!Config::inst()->get(ConfigExtension::class, 'multisites_enable_global_settings') && $this->owner instanceof \Fromholdio\ConfiguredMultisites\Model\Site)
 		) {
 
-			// sharing
-			$fields->addFieldToTab(
-				"Root.SocialSharing",
-			    DropdownField::create(
-			        'SharingType',
-			        _t("SocialShareConfigExtension.SharingType", 'Type of sharing links'),
-			        array(
-			            'Links' => 'Normal links (no Javascript needed)',
-			            'Buttons' => 'Native sharing buttons (uses Javascript, not all platforms supported)',
-			            'AddThis'=> 'AddThis (uses Javascript)'
-			        )
-			    )
-			);
-			$fields->addFieldToTab(
-				"Root.SocialSharing",
-				$manualFields = Wrapper::create(
-                    FieldGroup::create(
-                        CheckboxField::create('ShareOnFacebook', _t("SocialShareConfigExtension.SHAREONFACEBOOK", 'Share on Facebook')),
-                        CheckboxField::create('ShareOnBluesky', _t("SocialShareConfigExtension.SHAREONBLUESKY", 'Share on Bluesky')),
-                        CheckboxField::create('ShareOnThreads', _t("SocialShareConfigExtension.SHAREONTHREADS", 'Share on Threads')),
-                        CheckboxField::create('ShareOnTwitter', _t("SocialShareConfigExtension.SHAREONTWITTER", 'Share on X (Twitter)')),
-                        CheckboxField::create('ShareOnLinkedin', _t("SocialShareConfigExtension.SHAREONLINKEDIN", 'Share on LinkedIn')),
-                        CheckboxField::create('ShareOnPinterest', _t("SocialShareConfigExtension.SHAREONPINTEREST", 'Share on Pinterest')),
-                        CheckboxField::create('ShareOnReddit', _t("SocialShareConfigExtension.SHAREONREDDIT", 'Share on Reddit'))
-                    )
-                        ->addExtraClass('social-sharing-networks')
-                        ->setTitle(_t("SocialShareConfigExtension.SocialNetworks", 'Social Networks'))
-                )
-			);
-			$fields->addFieldToTab(
-			    "Root.SocialSharing",
-			    $addThisField = TextareaField::create("ShareAddThisCode", _t('SocialShareConfigExtension.AddThisCode', 'AddThis Code'))
-			        ->setRightTitle('Go to www.addthis.com/dashboard to customize your tools')
-			);
+            // sharing
+            $restrictedType = false;
+            if (($type = $this->getOwner()->config()->get('restrict_sharing_type'))
+                && in_array($type, ['Links', 'Buttons', 'AddThis'])
+            ) {
+                $restrictedType = $type;
+            }
 
-			$manualFields->displayIf('SharingType')->isEqualTo('Links')->orIf('SharingType')->isEqualTo('Buttons');
-            $addThisField->displayIf('SharingType')->isEqualTo('AddThis');
+            if (!$restrictedType) {
+                $fields->addFieldToTab(
+                    "Root.SocialSharing",
+                    DropdownField::create(
+                        'SharingType',
+                        _t("SocialShareConfigExtension.SharingType", 'Type of sharing links'),
+                        array(
+                            'Links' => 'Normal links (no Javascript needed)',
+                            'Buttons' => 'Native sharing buttons (uses Javascript, not all platforms supported)',
+                            'AddThis' => 'AddThis (uses Javascript)'
+                        )
+                    )
+                );
+            }
+            if (!$restrictedType || $restrictedType == 'Links' || $restrictedType == 'Buttons') {
+                $fields->addFieldToTab(
+                    "Root.SocialSharing",
+                    $manualFields = Wrapper::create(
+                        FieldGroup::create(
+                            CheckboxField::create('ShareOnFacebook', _t("SocialShareConfigExtension.SHAREONFACEBOOK", 'Share on Facebook')),
+                            CheckboxField::create('ShareOnBluesky', _t("SocialShareConfigExtension.SHAREONBLUESKY", 'Share on Bluesky')),
+                            CheckboxField::create('ShareOnThreads', _t("SocialShareConfigExtension.SHAREONTHREADS", 'Share on Threads')),
+                            CheckboxField::create('ShareOnTwitter', _t("SocialShareConfigExtension.SHAREONTWITTER", 'Share on X (Twitter)')),
+                            CheckboxField::create('ShareOnLinkedin', _t("SocialShareConfigExtension.SHAREONLINKEDIN", 'Share on LinkedIn')),
+                            CheckboxField::create('ShareOnPinterest', _t("SocialShareConfigExtension.SHAREONPINTEREST", 'Share on Pinterest')),
+                            CheckboxField::create('ShareOnReddit', _t("SocialShareConfigExtension.SHAREONREDDIT", 'Share on Reddit'))
+                        )
+                            ->addExtraClass('social-sharing-networks')
+                            ->setTitle(_t("SocialShareConfigExtension.SocialNetworks", 'Social Networks'))
+                    )
+                );
+            }
+            if (!$restrictedType) {
+                $manualFields->displayIf('SharingType')->isEqualTo('Links')->orIf('SharingType')->isEqualTo('Buttons');
+            }
+
+            if (!$restrictedType || $restrictedType == 'AddThis') {
+                $fields->addFieldToTab(
+                    "Root.SocialSharing",
+                    $addThisField = TextareaField::create("ShareAddThisCode", _t('SocialShareConfigExtension.AddThisCode', 'AddThis Code'))
+                        ->setRightTitle('Go to www.addthis.com/dashboard to customize your tools')
+                );
+            }
+            if (!$restrictedType) {
+                $addThisField->displayIf('SharingType')->isEqualTo('AddThis');
+            }
 
 			// sharing data
 			$fields->addFieldsToTab(
@@ -115,6 +132,12 @@ class ConfigExtension extends DataExtension {
 
 	public function onBeforeWrite() {
 		parent::onBeforeWrite();
+
+        if (($type = $this->getOwner()->config()->get('restrict_sharing_type'))
+            && in_array($type, ['Links', 'Buttons', 'AddThis'])
+        ) {
+            $this->getOwner()->SharingType = $type;
+        }
 
 		// clean up data
 		if ($this->owner->SharingType == "Links" || $this->owner->SharingType == "Buttons") {

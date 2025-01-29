@@ -49,6 +49,13 @@ You also have to add the following include to your `Page.ss` file:
 <% include BaseShareLinks %>
 ```
 
+You can restrict the type of sharing links to a specific type by adding the following config to yuour SiteConfig or Site:
+
+```
+SilverStripe\SiteConfig\SiteConfig:
+  restrict_sharing_type: [Links|Buttons|AddThis]
+```
+
 ### MultiSites support
 
 The module supports [multisites](https://github.com/symbiote/silverstripe-multisites) and [configured-multisites](https://github.com/fromholdio/silverstripe-configured-multisites) and by default adds the config options to the Sites.

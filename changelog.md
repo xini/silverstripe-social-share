@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [4.5.0]
+
+* add restrict_sharing_type setting for SiteConfig/Site
+
 ## [4.4.0]
 
 * add sharing links for Bluesky, Threads and Reddit
