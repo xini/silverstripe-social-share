@@ -6,24 +6,24 @@ use SilverStripe\Core\Config\Config;
 use SilverStripe\Core\Extension;
 use SilverStripe\View\Requirements;
 
-class PageControllerExtension extends Extension {
+class PageControllerExtension extends Extension
+{
 
-	public function onAfterInit() {
+    public function onAfterInit()
+    {
 
-	    Requirements::css('innoweb/silverstripe-social-share:client/dist/css/social-share.css');
+        Requirements::css('innoweb/silverstripe-social-share:client/dist/css/social-share.css');
 
-	    $config = ($this->getOwner()->data() && $this->getOwner()->data()->hasMethod('getSocialShareConfig')) ? $this->getOwner()->data()->getSocialShareConfig() : null;
+        $config = ($this->getOwner()->data() && $this->getOwner()->data()->hasMethod('getSocialShareConfig')) ? $this->getOwner()->data()->getSocialShareConfig() : null;
 
-	    if ($config) {
+        if ($config) {
+            $enableBaseShare = Config::inst()->get(ConfigExtension::class, 'enable_base_share');
 
-    		$enableBaseShare = Config::inst()->get(ConfigExtension::class, 'enable_base_share');
-
-    		// add javascript for sharing buttons
-    		if (($this->owner->ShowSharingLinks || $enableBaseShare) && $config->SharingType == "Buttons") {
-
-    			// twitter
-    			if ($config->ShareOnTwitter) {
-    				$js = <<<JS
+            // add javascript for sharing buttons
+            if (($this->getOwner()->ShowSharingLinks || $enableBaseShare) && $config->SharingType == "Buttons") {
+                // twitter
+                if ($config->ShareOnTwitter) {
+                    $js = <<<JS
     					window.twttr = (function(d, s, id) {
 						var js, fjs = d.getElementsByTagName(s)[0],
 						t = window.twttr || {};
@@ -41,12 +41,12 @@ class PageControllerExtension extends Extension {
 						return t;
 						}(document, "script", "twitter-wjs"));
 JS;
-    				Requirements::customScript($js, 'twitter-js');
-    			}
+                    Requirements::customScript($js, 'twitter-js');
+                }
 
-    			// facebook
-    			if ($config->ShareOnFacebook) {
-    		   		$js = <<<JS
+                // facebook
+                if ($config->ShareOnFacebook) {
+                    $js = <<<JS
     					(function(d, s, id) {
 						var js, fjs = d.getElementsByTagName(s)[0];
 						if (d.getElementById(id)) return;
@@ -55,12 +55,12 @@ JS;
 						fjs.parentNode.insertBefore(js, fjs);
 						}(document, 'script', 'facebook-jssdk'));
 JS;
-    				Requirements::customScript($js, 'facebook-js');
-    			}
+                    Requirements::customScript($js, 'facebook-js');
+                }
 
-    			// pinterest
-    			if ($config->ShareOnPinterest) {
-    		   		$js = <<<JS
+                // pinterest
+                if ($config->ShareOnPinterest) {
+                    $js = <<<JS
     					(function(d){
     					    var f = d.getElementsByTagName('SCRIPT')[0], p = d.createElement('SCRIPT');
     					    p.type = 'text/javascript';
@@ -69,12 +69,12 @@ JS;
     					    f.parentNode.insertBefore(p, f);
     					}(document));
 JS;
-    				Requirements::customScript($js, 'pinterest-js');
-    			}
+                    Requirements::customScript($js, 'pinterest-js');
+                }
 
-    			// linkedin
-    			if ($config->ShareOnLinkedin) {
-    		   		$js = <<<JS
+                // linkedin
+                if ($config->ShareOnLinkedin) {
+                    $js = <<<JS
     					(function() {
     						var e = document.createElement('script');
     						e.type = 'text/javascript';
@@ -84,14 +84,11 @@ JS;
     						s.parentNode.insertBefore(e, s);
     					})();
 JS;
-    				Requirements::customScript($js, 'linkedin-js');
-    			}
-
-    		} else if (($this->owner->ShowSharingLinks || $enableBaseShare) && $config->SharingType == "AddThis" && $config->ShareAddThisCode) {
-
-    		    Requirements::customScript($config->obj('ShareAddThisCode')->RAW(), 'addthis-js');
-
-    		}
-	    }
-	}
+                    Requirements::customScript($js, 'linkedin-js');
+                }
+            } elseif (($this->getOwner()->ShowSharingLinks || $enableBaseShare) && $config->SharingType == "AddThis" && $config->ShareAddThisCode) {
+                Requirements::customScript($config->obj('ShareAddThisCode')->RAW(), 'addthis-js');
+            }
+        }
+    }
 }
