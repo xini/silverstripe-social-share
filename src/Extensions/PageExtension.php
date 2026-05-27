@@ -28,6 +28,11 @@ class PageExtension extends Extension
         }
     }
 
+    public function updateCMSFields(FieldList $fields)
+    {
+        $fields->removeByName('ShowSharingLinks');
+    }
+
     public function updateSettingsFields(&$fields)
     {
         $fields->addFieldToTab(
