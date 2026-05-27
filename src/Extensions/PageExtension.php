@@ -7,6 +7,7 @@ use SilverStripe\Core\Config\Config;
 use SilverStripe\Core\Extension;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\FieldGroup;
+use SilverStripe\Forms\FieldList;
 use SilverStripe\Model\ArrayData;
 use SilverStripe\SiteConfig\SiteConfig;
 use Symbiote\Multisites\Multisites;
