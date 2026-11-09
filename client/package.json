@@ -3,31 +3,29 @@
     "version": "5.0.0",
     "author": "Innoweb Pty Ltd",
     "license": "BSD-3-Clause",
-    "devDependencies": {
-        "del": "^8.0.1",
-        "gulp": "^5.0.1",
-        "gulp-autoprefixer": "^9.0.0",
-        "gulp-changed": "^5.0.3",
-        "gulp-clean-css": "^4.3.0",
-        "gulp-cssimport": "^7.0.0",
-        "gulp-if": "^3.0.0",
-        "gulp-imagemin": "^9.1.0",
-        "gulp-plumber": "^1.2.1",
-        "gulp-sass": "^6.0.1",
-        "gulp-sourcemaps": "^3.0.0",
-        "sass": "^1.93.1",
-        "through2": "^4.0.2"
-    },
+    "main": "index.js",
     "engines": {
-        "node": "^20.0.0"
+        "node": "^24.0.0"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.6.2",
+        "chokidar": "^6.0.0",
+        "cssnano": "^9.9.0",
+        "postcss": "^8.5.32",
+        "postcss-import": "^17.0.1",
+        "sass": "^1.93.1",
+        "svgo": "^4.1.0"
+    },
+    "scripts": {
+        "build": "node build.mjs",
+        "watch": "node build.mjs --watch",
+        "css": "node build.mjs --css",
+        "svgs": "node build.mjs --svgs"
     },
     "browserslist": [
         "> 1%",
         "last 5 versions",
         "Firefox ESR",
         "not dead"
-    ],
-    "scripts": {
-        "build": "gulp"
-    }
+    ]
 }
